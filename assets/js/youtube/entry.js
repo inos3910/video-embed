@@ -6,7 +6,7 @@ class Main {
 
   createModel(){
     this.ytPlayer   = null;
-    this.ytID       = 'Nhxf7Sq7LDE';
+    this.ytID       = 'Nhxf7Sq7LDE'; //動画ID
   }
 
   initMethods() {
@@ -14,7 +14,7 @@ class Main {
     this.onYouTubeIframeAPIReady();
   }
 
-  //YouTube iframe apiを読み込み
+  //YouTube IFrame Player APIを読み込み
   addYoutubeScript(){
     const $youtube_elem = $('#js-youtube');
     if(!$youtube_elem[0]){
@@ -27,7 +27,7 @@ class Main {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   }
 
-  //Youtube Player APIの読み込み
+  //動画の再生
   onYouTubeIframeAPIReady() {
     const $player = $('#js-youtube');
     if(!$player[0]){
@@ -37,25 +37,16 @@ class Main {
       this.ytPlayer = new YT.Player('js-youtube', {
         videoId    : this.ytID,
         playerVars : {
-          start          : 0,
-          // 関連動画の非表示
-          rel            : 0,
-          // プレイヤーコントロールの非表示
-          controls       : 0,
-          // キーボード操作をオフ
-          disablekb      : 1,
-          // タイトルなどの非表示
-          showinfo       : 0,
-          // YouTubeロゴの非表示
-          modestbranding : 1,
-          // アノテーションの非表示
-          iv_load_policy : 3,
-          wmode          : 'transparent',
-          fs             : 0,
-          autoplay       : 1,
-          // loop           : 1,
-          // playlist       : this.ytID,
-          playsinline    : 1
+          start          : 0, // 動画開始位置
+          rel            : 0, // 関連動画の非表示
+          controls       : 0, // プレイヤーコントロールの非表示
+          disablekb      : 1, // キーボード操作をオフ
+          showinfo       : 0, // タイトルなどの非表示
+          modestbranding : 1, // YouTubeロゴの非表示
+          iv_load_policy : 3, // アノテーションの非表示
+          fs             : 0, //全画面表示ボタンの非表示
+          autoplay       : 1, //自動再生
+          playsinline    : 1 //インライン再生
         },
         events: {
           onReady       : this.onPlayerReady,
@@ -72,7 +63,7 @@ class Main {
     e.target.playVideo();
   }
 
-  //動画再生中と再生後の動作
+  //動画再生中の操作
   onPlayerStateChange(e){
     const ytStatus = e.target.getPlayerState();
     //再生中

@@ -32,9 +32,9 @@ class Main {
     }
 
     const options = {
-      id         : 524652180,
-      autoplay   : 1,
-      loop       : 1,
+      id         : 524652180, //ID
+      autoplay   : 1, //自動再生
+      loop       : 1, //ループ再生
       byline     : 0, //投稿者情報の非表示
       portrait   : 0, //左上Vimeoのロゴ非表示
       title      : 0, //タイトルの非表示
@@ -47,7 +47,7 @@ class Main {
       this.vimeoPlayer = new Vimeo.Player('js-vimeo', options);
       this.vimeoPlayer.setVolume(0); // ミュート
       this.vimeoPlayer.play();    // 再生
-
+      //再生が始まったらクラスを追加
       this.vimeoPlayer.on('play', () => {
         $player.parent().addClass('is-loaded');
       });
