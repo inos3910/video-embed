@@ -1,0 +1,6 @@
+.l-main{
+  @include min-screen($bp_tb_v){
+  }
+  @include min-screen($bp_base){
+  }
+}

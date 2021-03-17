@@ -1,0 +1,48 @@
+.l-footer {
+  padding: 60px;
+  text-align: center;
+  color: #fff;
+  background: #000;
+  @include min-screen($bp_tb_v){
+  }
+  @include min-screen($bp_base){
+  }
+
+  &__nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a{
+      flex-shrink: 0;
+      margin-right: 15px;
+      margin-left: 15px;
+      color: currentColor;
+
+      @media (any-hover: hover) {
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .current{
+      padding: 3px;
+      color: #000;
+      background: #fff;
+    }
+  }
+
+  &__back{
+    margin-top: 60px;
+    display: inline-block;
+    letter-spacing: 0.09em;
+    color: currentColor;
+
+    @media (any-hover: hover) {
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
