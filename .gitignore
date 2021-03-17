@@ -1,6 +1,7 @@
 .DS_Store
 *.log
 *.psd
+*.mp4
 *.map
 *.lock
 *.webp
