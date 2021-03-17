@@ -44,20 +44,17 @@
     background: #000;
 
     &--vimeo{
+      overflow: hidden;
+      position: relative;
       height: 56.25vw;
-      padding-top: 0;
-    }
+      background: #000;
 
-    iframe{
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      top: -60px;
-      left: 0;
-      width: 100%;
-      height: calc(100% + 120px);
-      transition:$transition;
-      transition-property: opacity, visibility;
+      &.is-loaded{
+        iframe{
+          opacity: 1;
+          visibility: visible;
+        }
+      }
     }
 
     &.is-loaded{
@@ -70,5 +67,14 @@
 
   iframe{
     pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 120px);
+    transition:$transition;
+    transition-property: opacity, visibility;
   }
 }

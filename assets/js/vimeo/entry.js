@@ -49,7 +49,7 @@ class Main {
       this.vimeoPlayer.play();    // 再生
       //再生が始まったらクラスを追加
       this.vimeoPlayer.on('play', () => {
-        $player.parent().addClass('is-loaded');
+        $player.addClass('is-loaded');
       });
     });
   }
