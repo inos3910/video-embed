@@ -6,7 +6,7 @@ class Main {
 
   createModel(){
     this.ytPlayer   = null;
-    this.ytID       = 'Nhxf7Sq7LDE'; //動画ID
+    this.ytID       = 'T7unhfQfCpc'; //動画ID
   }
 
   initMethods() {
