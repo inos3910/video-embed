@@ -6,7 +6,6 @@ class Main {
 
   createModel(){
     this.ytPlayer   = null;
-    this.ytID       = 'm8bWgQ1zWEk'; //動画ID
   }
 
   initMethods() {
@@ -34,8 +33,9 @@ class Main {
       return;
     }
     $(window).on('load', ()=> {
+      const ytID    = $player.data('youtube-id'); //動画ID
       this.ytPlayer = new YT.Player('js-youtube', {
-        videoId    : this.ytID,
+        videoId    : ytID,
         playerVars : {
           start          : 0, // 動画開始位置
           rel            : 0, // 関連動画の非表示

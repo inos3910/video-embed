@@ -32,7 +32,6 @@ class Main {
     }
 
     const options = {
-      id         : 524652180, //ID
       autoplay   : 1, //自動再生
       loop       : 1, //ループ再生
       byline     : 0, //投稿者情報の非表示
