@@ -6,6 +6,7 @@ class Main {
 
   createModel(){
     this.ytPlayer   = null;
+    this.played     = false;
   }
 
   initMethods() {
@@ -47,12 +48,14 @@ class Main {
           fs             : 0, //全画面表示ボタンの非表示
           autoplay       : 1, //自動再生
           playsinline    : 1, //インライン再生
-          loop           : 1, //ループ
-          playlist       : ytID //ループさせる動画のID
+          loop           : 0, //ループ
+          //playlist       : ytID //ループさせる動画のID
         },
         events: {
           onReady       : this.onPlayerReady,
-          onStateChange : this.onPlayerStateChange
+          onStateChange : (e) => {
+            this.onPlayerStateChange(e);
+          }
         }
       });
     });
@@ -72,13 +75,22 @@ class Main {
     if (ytStatus == YT.PlayerState.PLAYING) {
       const $player = $('#js-youtube');
       $player.parent().addClass('is-loaded');
+      if(!this.played){
+        this.played = true;
+        const duration = this.ytPlayer.getDuration();
+        const timer = setInterval(() => {
+          this.ytPlayer.seekTo(0);
+          this.ytPlayer.playVideo();
+        }, parseInt(duration * 1000))
+      }
     }
     //再生後
-    if (ytStatus == YT.PlayerState.ENDED) {
-      const $player = $('#js-youtube');
-      $player.parent().removeClass('is-loaded');
-      e.target.seekTo(0);
-    }
+    // if (ytStatus == YT.PlayerState.ENDED) {
+    //   console.log('end');
+    //   const $player = $('#js-youtube');
+    //   $player.parent().removeClass('is-loaded');
+    //   e.target.seekTo(0);
+    // }
   }
 }
 
