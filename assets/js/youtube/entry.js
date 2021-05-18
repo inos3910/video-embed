@@ -63,7 +63,7 @@ class Main {
 
   //動画の準備完了後の動作
   onPlayerReady(e){
-    e.target.setPlaybackQuality('default');
+    e.target.setPlaybackQuality('highres');
     e.target.mute();
     e.target.playVideo();
   }
